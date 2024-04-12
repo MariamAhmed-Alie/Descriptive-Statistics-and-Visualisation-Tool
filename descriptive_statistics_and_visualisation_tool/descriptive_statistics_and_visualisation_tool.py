@@ -18,18 +18,18 @@ def descriptives_and_visuals(data_path):
             # Create visualisations for numerical columns
             numerical_cols = data.select_dtypes(include=['number']).columns
             for col in numerical_cols:
-                sns.histplot(data=data, x=col, kde=True)
+                sns.histplot(data=data, x=col, bins=30, color='r', kde=True)
                 plt.title(f"Histogram of {col}")
                 plt.show()
 
             for col in numerical_cols:
-                sns.boxplot(data=data, x=col)
+                sns.boxplot(data=data, x=col, palette='Set3')
                 plt.title(f"Box Plot of {col}")
                 plt.show()
 
             # Create violin plots for all numerical columns
             for col in numerical_cols:
-                sns.violinplot(data=data, x=col)
+                sns.violinplot(data=data, x=col, palette='Set2')
                 plt.title(f"Violin Plot of {col}")
                 plt.show()
 
@@ -37,7 +37,7 @@ def descriptives_and_visuals(data_path):
             plt.title("Scatter Plot Matrix")
             plt.show()
 
-            sns.heatmap(data[numerical_cols].corr(), annot=True)
+            sns.heatmap(data[numerical_cols].corr(), annot=True, cmap='summer')
             plt.title("Correlation Heatmap")
             plt.show()
         else:
@@ -50,6 +50,8 @@ file_path = input("Please enter the file path: ")
 
 # Call function
 descriptives_and_visuals(file_path)
+
+
     
 
 
