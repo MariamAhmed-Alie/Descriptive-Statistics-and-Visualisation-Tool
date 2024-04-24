@@ -47,6 +47,7 @@ The script includes error handling for the following scenarios:
 
 - If the specified file does not exist, it will print an error message.
 - If a `FileNotFoundError` occurs during execution, it will print an error message.
+- If an invalid plot type is entered, it will display an "Invalid plot type." message.
 
 ## Built-in Modules
 
